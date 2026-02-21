@@ -1,0 +1,59 @@
+/* ══════════════════════════════════════════════════
+   DESIGN KIT — Base
+   Typography hierarchy, scrollbar, code blocks.
+   ══════════════════════════════════════════════════ */
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink-1);
+}
+
+h1 { font-size: var(--t-20); }
+h2 { font-size: var(--t-17); }
+h3 { font-size: var(--t-15); }
+h4 { font-size: var(--t-13); font-weight: 500; }
+
+/* ── Section labels — uppercase structural text ── */
+.section-label {
+  font-size: var(--t-10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Monospace data ── */
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+code, kbd {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-inset);
+  padding: 1px 4px;
+  border-radius: var(--r1);
+  border: 1px solid var(--line);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: var(--r-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--ink-1);
+}

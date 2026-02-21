@@ -1,0 +1,57 @@
+/* ══════════════════════════════════════════════════
+   Tables
+   Clean horizontal rules. No zebra stripes.
+   Headers distinguished by weight, not fill.
+   ══════════════════════════════════════════════════ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: var(--s8) var(--s12);
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.table th {
+  font-weight: 600;
+  font-size: var(--t-11);
+  color: var(--ink-1);
+  background: transparent;
+  letter-spacing: 0.02em;
+}
+
+.table tr:hover td {
+  background: var(--bg);
+}
+
+/* Bordered table variant */
+.table-bordered {
+  border: 1px solid var(--line-strong);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.table-bordered th:last-child,
+.table-bordered td:last-child {
+  border-right: none;
+}
+
+.table-bordered th {
+  border-bottom-color: var(--line-strong);
+  background: var(--surface);
+}
+
+/* Compact variant */
+.table-compact th,
+.table-compact td {
+  padding: var(--s4) var(--s8);
+  font-size: var(--t-12);
+}

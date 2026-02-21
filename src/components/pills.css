@@ -1,0 +1,64 @@
+/* ══════════════════════════════════════════════════
+   Pills
+   Filter pills — squared, uppercase.
+   Active: inverted (dark fill, light text).
+   ══════════════════════════════════════════════════ */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: var(--t-11);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  border-radius: var(--r2);
+  transition: all var(--dt-fast);
+  white-space: nowrap;
+}
+
+.pill:hover {
+  border-color: var(--line-strong);
+  color: var(--ink-1);
+}
+
+.pill.active {
+  background: var(--ink-1);
+  border-color: var(--ink-1);
+  color: var(--surface);
+}
+
+/* Dark mode pill inversion */
+[data-theme="dark"] .pill.active {
+  background: var(--ink-1);
+  color: var(--bg);
+}
+
+/* Pill group */
+.pill-group {
+  display: flex;
+  gap: var(--s4);
+}
+
+/* Chip (rounded variant for toolbars) */
+.chip {
+  padding: 4px 14px;
+  font-size: var(--t-12);
+  font-weight: 500;
+  border-radius: var(--r-full);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all var(--dt-fast);
+}
+.chip:hover { border-color: var(--line-strong); color: var(--ink-1); }
+.chip.active {
+  background: var(--ink-1);
+  color: var(--surface);
+  border-color: var(--ink-1);
+}

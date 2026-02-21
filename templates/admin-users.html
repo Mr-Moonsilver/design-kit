@@ -1,0 +1,80 @@
+<!--
+  Template: User Management
+  ─────────────────────────────────────────
+  Toolbar with search + "Add user" button.
+  Table: name, email, role, status, actions.
+  Actions column: role dropdown, delete (ghost icon).
+
+  Used for: Admin user lists, team management,
+  access control pages.
+-->
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Users</h1>
+      <p class="page-subtitle">Manage who has access</p>
+    </div>
+    <button class="btn btn-accent">
+      <!-- Plus icon --> Add User
+    </button>
+  </div>
+
+  <!-- Toolbar: search left, filter right -->
+  <div class="toolbar">
+    <div class="search-wrapper">
+      <input type="text" class="search-input" placeholder="Search users..." />
+      <!-- X icon as .search-clear when value present -->
+    </div>
+    <select class="form-select" style="width: auto;">
+      <option>All roles</option>
+      <option>Admin</option>
+      <option>User</option>
+    </select>
+  </div>
+
+  <!-- User table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th style="width: 120px; text-align: right;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="font-medium text-ink-1">Jane Smith</span>
+        </td>
+        <td>jane@company.com</td>
+        <td><span class="badge">Admin</span></td>
+        <td><span class="badge badge-ok">Active</span></td>
+        <td style="text-align: right;">
+          <div class="flex gap-4 justify-end">
+            <select class="form-select" style="width: auto; padding: 2px 8px; font-size: var(--t-12);">
+              <option>Admin</option>
+              <option>User</option>
+            </select>
+            <button class="btn btn-icon" title="Delete user">
+              <!-- Trash2 icon-sm -->
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Empty state (when no users match) -->
+  <!--
+  <div class="empty-state">
+    <div class="empty-state-icon">👤</div>
+    <div class="empty-state-title">No users found</div>
+    <div class="empty-state-desc">
+      Try a different search or add a new user.
+    </div>
+  </div>
+  -->
+</div>

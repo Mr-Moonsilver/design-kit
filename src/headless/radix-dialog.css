@@ -1,0 +1,135 @@
+/* ══════════════════════════════════════════════════
+   Radix Dialog / AlertDialog
+   Styles for @radix-ui/react-dialog and
+   @radix-ui/react-alert-dialog data attributes.
+   ══════════════════════════════════════════════════ */
+
+/* ── Overlay ── */
+[data-radix-dialog-overlay],
+[data-radix-alert-dialog-overlay] {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 15, 14, 0.35);
+  animation: dk-fade-in var(--dt-mid) var(--ease);
+}
+
+[data-radix-dialog-overlay][data-state="closed"],
+[data-radix-alert-dialog-overlay][data-state="closed"] {
+  animation: dk-fade-out var(--dt-mid) var(--ease);
+}
+
+/* ── Content ── */
+[data-radix-dialog-content],
+[data-radix-alert-dialog-content] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  width: calc(100% - var(--s48));
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  animation: dk-dialog-in var(--dt-mid) var(--ease);
+}
+
+[data-radix-dialog-content][data-state="closed"],
+[data-radix-alert-dialog-content][data-state="closed"] {
+  animation: dk-dialog-out var(--dt-mid) var(--ease);
+}
+
+/* ── Dialog sections ── */
+[data-radix-dialog-content] .modal-header,
+[data-radix-alert-dialog-content] .modal-header {
+  padding: var(--s16) var(--s20);
+  border-bottom: 1px solid var(--line);
+}
+
+[data-radix-dialog-content] .modal-body,
+[data-radix-alert-dialog-content] .modal-body {
+  padding: var(--s16) var(--s20);
+}
+
+[data-radix-dialog-content] .modal-footer,
+[data-radix-alert-dialog-content] .modal-footer {
+  padding: var(--s12) var(--s20);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s8);
+}
+
+/* ── Title & Description ── */
+[data-radix-dialog-title],
+[data-radix-alert-dialog-title] {
+  font-size: var(--t-15);
+  font-weight: 600;
+  color: var(--ink-1);
+  margin: 0;
+}
+
+[data-radix-dialog-description],
+[data-radix-alert-dialog-description] {
+  font-size: var(--t-13);
+  color: var(--ink-3);
+  margin: var(--s8) 0 0;
+  line-height: 1.5;
+}
+
+/* ── Close button ── */
+[data-radix-dialog-close] {
+  position: absolute;
+  top: var(--s12);
+  right: var(--s12);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: var(--r1);
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all var(--dt-fast);
+}
+
+[data-radix-dialog-close]:hover {
+  color: var(--ink-1);
+  border-color: var(--line-strong);
+}
+
+/* ── Animations ── */
+@keyframes dk-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes dk-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes dk-dialog-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes dk-dialog-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+}

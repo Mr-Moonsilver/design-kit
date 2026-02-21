@@ -1,0 +1,36 @@
+/* ══════════════════════════════════════════════════
+   Tabs
+   Underline style. Active: accent border-bottom.
+   ══════════════════════════════════════════════════ */
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--s16);
+}
+
+.tab {
+  padding: var(--s8) var(--s16);
+  font-size: var(--t-13);
+  font-weight: 400;
+  color: var(--ink-3);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--dt-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.tab:hover {
+  color: var(--ink-1);
+}
+
+.tab.active {
+  color: var(--ink-1);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}

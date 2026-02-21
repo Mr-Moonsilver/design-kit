@@ -1,0 +1,110 @@
+<!--
+  Template: Dashboard
+  ─────────────────────────────────────────
+  Stat cards at top, then content sections
+  (setup cards, phase cards, recent activity).
+
+  Used for: App home pages, overview pages,
+  project dashboards, summary views.
+-->
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-subtitle">Overview of your workspace</p>
+    </div>
+    <div class="flex gap-8">
+      <button class="btn btn-export">
+        <!-- Download icon-sm --> Export
+      </button>
+    </div>
+  </div>
+
+  <!-- Stat cards -->
+  <div class="stats-grid mb-24">
+    <div class="stat-card">
+      <div class="stat-value">42</div>
+      <div class="stat-label">Total Items</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">28</div>
+      <div class="stat-label">Active</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">87%</div>
+      <div class="stat-label">Completion</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Pending Review</div>
+    </div>
+  </div>
+
+  <!-- Action cards (setup / quick actions) -->
+  <h3 class="section-label mb-12">Quick Actions</h3>
+  <div class="stats-grid mb-24">
+    <div class="card card-clickable p-16">
+      <div class="flex items-center gap-12">
+        <div class="text-accent">
+          <!-- Settings icon-lg -->
+        </div>
+        <div>
+          <div class="font-medium text-ink-1">Configure</div>
+          <div class="text-xs text-ink-3">Set up your workspace</div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-clickable p-16">
+      <div class="flex items-center gap-12">
+        <div class="text-accent">
+          <!-- Upload icon-lg -->
+        </div>
+        <div>
+          <div class="font-medium text-ink-1">Import Data</div>
+          <div class="text-xs text-ink-3">Upload from CSV or Excel</div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-clickable p-16">
+      <div class="flex items-center gap-12">
+        <div class="text-accent">
+          <!-- Users icon-lg -->
+        </div>
+        <div>
+          <div class="font-medium text-ink-1">Manage Team</div>
+          <div class="text-xs text-ink-3">Add or remove members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content section: cards in a list -->
+  <h3 class="section-label mb-12">Active Items</h3>
+  <div class="flex flex-col gap-8">
+    <div class="card">
+      <div class="flex justify-between items-center p-16">
+        <div>
+          <div class="font-medium text-ink-1">Item Name</div>
+          <div class="text-xs text-ink-3">Last updated 2 hours ago</div>
+        </div>
+        <div class="flex gap-8 items-center">
+          <span class="badge badge-ok">Active</span>
+          <button class="btn btn-sm">View</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flex justify-between items-center p-16">
+        <div>
+          <div class="font-medium text-ink-1">Another Item</div>
+          <div class="text-xs text-ink-3">Last updated yesterday</div>
+        </div>
+        <div class="flex gap-8 items-center">
+          <span class="badge badge-warn">Review</span>
+          <button class="btn btn-sm">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

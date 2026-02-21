@@ -1,0 +1,137 @@
+<!--
+  Template: List + Detail (Two Column)
+  ─────────────────────────────────────────
+  Left: scrollable list with search/filter.
+  Right: detail panel showing selected item.
+  Panel opens via slide-in or is static.
+
+  Used for: Qualification views, inspection pages,
+  anything where you select from a list to see detail.
+-->
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Qualifications</h1>
+      <p class="page-meta">Select an item to view details</p>
+    </div>
+  </div>
+
+  <div class="two-column">
+
+    <!-- Left: List -->
+    <div>
+      <!-- Search -->
+      <div class="search-wrapper mb-12">
+        <input type="text" class="search-input" placeholder="Filter items..." />
+      </div>
+
+      <!-- Pill filters -->
+      <div class="pill-group mb-12">
+        <button class="pill active">All</button>
+        <button class="pill">Type A</button>
+        <button class="pill">Type B</button>
+      </div>
+
+      <!-- List items (cards) -->
+      <div class="flex flex-col gap-8">
+        <div class="card card-clickable">
+          <div class="flex justify-between items-center">
+            <div>
+              <div class="font-medium text-ink-1">Item Name</div>
+              <div class="text-xs text-ink-3">Short description</div>
+            </div>
+            <span class="badge badge-ok">Status</span>
+          </div>
+        </div>
+
+        <!-- Selected item gets .selected -->
+        <div class="card card-clickable selected">
+          <div class="flex justify-between items-center">
+            <div>
+              <div class="font-medium text-ink-1">Selected Item</div>
+              <div class="text-xs text-ink-3">This item is currently viewed</div>
+            </div>
+            <span class="badge badge-warn">Pending</span>
+          </div>
+        </div>
+
+        <div class="card card-clickable">
+          <div class="flex justify-between items-center">
+            <div>
+              <div class="font-medium text-ink-1">Another Item</div>
+              <div class="text-xs text-ink-3">Short description</div>
+            </div>
+            <span class="badge">Draft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Detail panel (static, always visible) -->
+    <div class="panel">
+      <div class="panel-header">
+        <h3>Selected Item</h3>
+      </div>
+      <div class="panel-body">
+
+        <!-- Metadata -->
+        <div class="flex flex-wrap gap-4 mb-16">
+          <span class="badge">Type A</span>
+          <span class="badge badge-warn">Pending</span>
+        </div>
+
+        <!-- Description -->
+        <p class="text-sm text-ink-2 mb-16" style="line-height: 1.6;">
+          Detailed description of the selected item. This area can contain
+          any content relevant to the selected list item.
+        </p>
+
+        <!-- Detail sections -->
+        <div class="mb-16">
+          <h4 class="section-label mb-8">Properties</h4>
+          <table class="table table-compact">
+            <tbody>
+              <tr>
+                <td class="text-ink-3" style="width: 120px;">Created</td>
+                <td class="tabular-nums">2026-02-21</td>
+              </tr>
+              <tr>
+                <td class="text-ink-3">Owner</td>
+                <td>Jane Smith</td>
+              </tr>
+              <tr>
+                <td class="text-ink-3">Score</td>
+                <td class="text-mono tabular-nums">87%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-8">
+          <button class="btn btn-accent flex-1">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Alternative: Slide-in detail panel (for mobile or overlay mode) -->
+<!--
+<div class="panel-overlay open">
+  <div class="panel-overlay-bg"></div>
+  <div class="panel-slide">
+    <div class="panel-head">
+      <h3>Item Detail</h3>
+      <button class="close-btn">✕</button>
+    </div>
+    <div class="panel-section">
+      Panel content here...
+    </div>
+  </div>
+</div>
+-->

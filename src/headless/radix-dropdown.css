@@ -1,0 +1,188 @@
+/* ══════════════════════════════════════════════════
+   Radix Select / DropdownMenu
+   Styles for @radix-ui/react-select and
+   @radix-ui/react-dropdown-menu data attributes.
+   ══════════════════════════════════════════════════ */
+
+/* ── Trigger ── */
+[data-radix-select-trigger],
+[data-radix-dropdown-menu-trigger] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s4) var(--s12);
+  font-size: var(--t-13);
+  color: var(--ink-1);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r1);
+  cursor: pointer;
+  transition: border-color var(--dt-fast);
+}
+
+[data-radix-select-trigger]:hover,
+[data-radix-dropdown-menu-trigger]:hover {
+  border-color: var(--line-strong);
+}
+
+[data-radix-select-trigger]:focus-visible,
+[data-radix-dropdown-menu-trigger]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+[data-radix-select-trigger][data-state="open"],
+[data-radix-dropdown-menu-trigger][data-state="open"] {
+  border-color: var(--accent);
+}
+
+/* ── Select icon (chevron) ── */
+[data-radix-select-icon] {
+  color: var(--ink-3);
+}
+
+/* ── Content (dropdown panel) ── */
+[data-radix-select-content],
+[data-radix-dropdown-menu-content],
+[data-radix-dropdown-menu-sub-content] {
+  z-index: 210;
+  min-width: 160px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+  padding: var(--s4) 0;
+  animation: dk-dropdown-in var(--dt-fast) var(--ease);
+}
+
+[data-radix-select-content][data-state="closed"],
+[data-radix-dropdown-menu-content][data-state="closed"],
+[data-radix-dropdown-menu-sub-content][data-state="closed"] {
+  animation: dk-dropdown-out var(--dt-fast) var(--ease);
+}
+
+/* ── Viewport (Select scrollable area) ── */
+[data-radix-select-viewport] {
+  padding: 0;
+}
+
+/* ── Items ── */
+[data-radix-select-item],
+[data-radix-dropdown-menu-item],
+[data-radix-dropdown-menu-checkbox-item],
+[data-radix-dropdown-menu-radio-item] {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+  padding: var(--s4) var(--s12);
+  font-size: var(--t-13);
+  color: var(--ink-2);
+  cursor: pointer;
+  outline: none;
+  transition: background var(--dt-fast), color var(--dt-fast);
+}
+
+[data-radix-select-item][data-highlighted],
+[data-radix-dropdown-menu-item][data-highlighted],
+[data-radix-dropdown-menu-checkbox-item][data-highlighted],
+[data-radix-dropdown-menu-radio-item][data-highlighted] {
+  background: var(--bg-inset);
+  color: var(--ink-1);
+}
+
+[data-radix-select-item][data-state="checked"],
+[data-radix-dropdown-menu-checkbox-item][data-state="checked"],
+[data-radix-dropdown-menu-radio-item][data-state="checked"] {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+[data-radix-select-item][data-disabled],
+[data-radix-dropdown-menu-item][data-disabled] {
+  color: var(--ink-3);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Item indicator (checkmark) ── */
+[data-radix-select-item-indicator],
+[data-radix-dropdown-menu-item-indicator] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  color: var(--accent);
+}
+
+/* ── Separator ── */
+[data-radix-dropdown-menu-separator],
+[data-radix-select-separator] {
+  height: 1px;
+  background: var(--line);
+  margin: var(--s4) 0;
+}
+
+/* ── Label (group heading) ── */
+[data-radix-dropdown-menu-label],
+[data-radix-select-label] {
+  padding: var(--s4) var(--s12);
+  font-size: var(--t-10);
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Scroll buttons (Select) ── */
+[data-radix-select-scroll-up-button],
+[data-radix-select-scroll-down-button] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  color: var(--ink-3);
+  cursor: default;
+}
+
+/* ── Sub-trigger arrow ── */
+[data-radix-dropdown-menu-sub-trigger] {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+  padding: var(--s4) var(--s12);
+  font-size: var(--t-13);
+  color: var(--ink-2);
+  cursor: pointer;
+  outline: none;
+}
+
+[data-radix-dropdown-menu-sub-trigger][data-highlighted] {
+  background: var(--bg-inset);
+  color: var(--ink-1);
+}
+
+[data-radix-dropdown-menu-sub-trigger][data-state="open"] {
+  background: var(--bg-inset);
+}
+
+/* ── Animations ── */
+@keyframes dk-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dk-dropdown-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

@@ -1,0 +1,46 @@
+/* ══════════════════════════════════════════════════
+   Badges
+   Bordered capsules. Minimal, structural.
+   ══════════════════════════════════════════════════ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  border-radius: var(--r1);
+}
+
+/* Accent badge */
+.badge-accent {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Status badges */
+.badge-ok { border-color: var(--ok); color: var(--ok); }
+.badge-warn { border-color: var(--warn); color: var(--warn); }
+.badge-err { border-color: var(--err); color: var(--err); }
+
+/* Plain text badge (no border, just color) */
+.badge-plain {
+  border: none;
+  padding: 0;
+  background: none;
+  font-weight: 400;
+}
+
+/* Clickable badge */
+.badge-clickable {
+  cursor: pointer;
+  transition: background var(--dt-fast);
+}
+.badge-clickable:hover {
+  background: var(--accent-dim);
+}

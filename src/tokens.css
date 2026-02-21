@@ -1,0 +1,106 @@
+/* ══════════════════════════════════════════════════
+   DESIGN KIT — Tokens
+   Swiss Rationalist design system.
+   One field, one ink, one accent. That's it.
+   ══════════════════════════════════════════════════ */
+
+:root {
+  /* ── Field ── */
+  --bg:          #f6f6f4;   /* Cool off-white — content background */
+  --surface:     #ffffff;   /* Topbar, sidebar, cards, panels */
+  --bg-inset:    #f0f0ee;   /* Recessed areas, sunken backgrounds */
+
+  /* ── Ink — single neutral hue, three values ── */
+  --ink-1: #0f0f0e;         /* Headings, labels, primary text */
+  --ink-2: #4a4a47;         /* Body text, nav items, descriptions */
+  --ink-3: #9a9a96;         /* Tertiary: muted labels, counts, placeholders */
+
+  /* ── Structure ── */
+  --line:        #ddddd9;   /* Interior borders, card edges, dividers */
+  --line-strong: #b8b8b2;   /* Header rules, hover borders, emphasis */
+
+  /* ── Accent — deep indigo, used sparingly ──
+     Override in your app's CSS:  :root { --accent: #0d7377; }  */
+  --accent:       #1a1682;
+  --accent-hover: #12105e;
+  --accent-dim:   #eeedf8;  /* Background tint for active/selected states */
+  --accent-mid:   #9a98d0;  /* Mid-tone for outlines, progress */
+
+  /* ── Semantic ── */
+  --ok:       #3a7d5e;
+  --ok-dim:   #e8f5ee;
+  --warn:     #c08820;
+  --warn-dim: #fdf6e3;
+  --err:      #d63031;
+  --err-dim:  #fce8e8;
+
+  /* ── Typography ── */
+  --font:      'Hanken Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'DM Mono', 'SF Mono', 'Courier New', monospace;
+
+  /* ── Type scale ── */
+  --t-10: 0.625rem;    /* 10px — section labels (UPPERCASE, 600w, tracked) */
+  --t-11: 0.6875rem;   /* 11px — meta text, sidebar counts, filter pills */
+  --t-12: 0.75rem;     /* 12px — small body */
+  --t-13: 0.8125rem;   /* 13px — card titles, body text, nav items */
+  --t-14: 0.875rem;    /* 14px — default body */
+  --t-15: 0.9375rem;   /* 15px — panel body, page sub-labels */
+  --t-17: 1.0625rem;   /* 17px — panel title, page title */
+  --t-20: 1.25rem;     /* 20px — brand mark, large heading */
+
+  /* ── Spacing — strict 4px grid ── */
+  --s4:  0.25rem;    /*  4px */
+  --s8:  0.5rem;     /*  8px */
+  --s12: 0.75rem;    /* 12px */
+  --s16: 1rem;       /* 16px */
+  --s20: 1.25rem;    /* 20px */
+  --s24: 1.5rem;     /* 24px */
+  --s32: 2rem;       /* 32px */
+  --s48: 3rem;       /* 48px */
+
+  /* ── Geometry — right angles ── */
+  --r0: 0px;     /* Grid, table structure */
+  --r1: 1px;     /* Cards, buttons, panel close */
+  --r2: 2px;     /* Filter pills (maximum decorative radius) */
+  --r-full: 999px; /* Circles only (status dots, avatars) */
+
+  /* ── Motion — restrained ── */
+  --ease:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dt-fast: 100ms;
+  --dt-mid:  180ms;
+
+  /* ── Layout ── */
+  --topbar-h:  48px;
+  --sidebar-w: 200px;
+}
+
+/* ══════════════════════════════════════════════════
+   DARK MODE
+   Neutral charcoal only. No warm tint, no cool blue.
+   Same structural logic — lines carry weight, surfaces flat.
+   ══════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --bg:          #111110;
+  --surface:     #191917;
+  --bg-inset:    #0d0d0c;
+
+  --ink-1: #e8e8e4;
+  --ink-2: #8a8a86;
+  --ink-3: #505050;
+
+  --line:        #272724;
+  --line-strong: #383836;
+
+  --accent:       #6b68e0;
+  --accent-hover: #8280e8;
+  --accent-dim:   #1a1930;
+  --accent-mid:   #4a48a0;
+
+  --ok:       #5cc08e;
+  --ok-dim:   #0d2818;
+  --warn:     #e8a545;
+  --warn-dim: #1a1400;
+  --err:      #ff6b6b;
+  --err-dim:  #1a0808;
+}

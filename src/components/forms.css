@@ -1,0 +1,102 @@
+/* ══════════════════════════════════════════════════
+   Forms
+   Thin borders, compact, accent focus ring.
+   ══════════════════════════════════════════════════ */
+
+.form-group {
+  margin-bottom: var(--s12);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--t-11);
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: var(--ink-1);
+  letter-spacing: 0.02em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: var(--s8) var(--s12);
+  font-size: var(--t-13);
+  border: 1px solid var(--line);
+  border-radius: var(--r1);
+  background: var(--surface);
+  color: var(--ink-1);
+  transition: border-color var(--dt-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--ink-3);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Search input */
+.search-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 6px 12px;
+  padding-right: 28px;
+  font-size: var(--t-13);
+  font-family: var(--font);
+  border: 1px solid var(--line);
+  border-radius: var(--r1);
+  background: var(--surface);
+  color: var(--ink-1);
+  transition: border-color var(--dt-fast);
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.search-input::placeholder { color: var(--ink-3); }
+
+.search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-3);
+  padding: 2px;
+  line-height: 1;
+  font-size: 13px;
+}
+.search-clear:hover { color: var(--ink-1); }
+
+/* File upload */
+.file-upload {
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r2);
+  padding: var(--s20);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--dt-fast);
+  color: var(--ink-3);
+}
+.file-upload:hover { border-color: var(--accent); }
+.file-upload.dragging {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}

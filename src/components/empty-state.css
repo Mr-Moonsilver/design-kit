@@ -1,0 +1,32 @@
+/* ══════════════════════════════════════════════════
+   Empty State
+   Centered message for no-data scenarios.
+   ══════════════════════════════════════════════════ */
+
+.empty-state {
+  text-align: center;
+  padding: var(--s48);
+  color: var(--ink-3);
+  font-size: var(--t-13);
+}
+
+.empty-state-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+  margin-bottom: var(--s8);
+}
+
+.empty-state-title {
+  font-size: var(--t-15);
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: var(--s4);
+}
+
+.empty-state-desc {
+  font-size: var(--t-13);
+  color: var(--ink-3);
+  max-width: 320px;
+  margin: 0 auto;
+  line-height: 1.5;
+}

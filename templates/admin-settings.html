@@ -1,0 +1,125 @@
+<!--
+  Template: Admin Settings
+  ─────────────────────────────────────────
+  Vertical stack of setting cards, each with
+  a title and grouped toggle/select controls.
+
+  Used for: App configuration, feature flags,
+  phase management, system preferences.
+-->
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Settings</h1>
+      <p class="page-subtitle">Configure application behavior</p>
+    </div>
+  </div>
+
+  <!-- Setting group: General -->
+  <div class="card mb-16">
+    <div class="card-header">
+      <h3 class="card-title">General</h3>
+    </div>
+    <div class="flex flex-col gap-12 p-16">
+
+      <!-- Toggle setting -->
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="font-medium text-ink-1">Dark mode default</div>
+          <div class="text-sm text-ink-3">New users start in dark mode</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" class="toggle-input" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Select setting -->
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="font-medium text-ink-1">Date format</div>
+          <div class="text-sm text-ink-3">How dates are displayed throughout the app</div>
+        </div>
+        <select class="form-select" style="width: auto;">
+          <option>DD/MM/YYYY</option>
+          <option>MM/DD/YYYY</option>
+          <option>YYYY-MM-DD</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Setting group: Accent color -->
+  <div class="card mb-16">
+    <div class="card-header">
+      <h3 class="card-title">Appearance</h3>
+    </div>
+    <div class="flex flex-col gap-12 p-16">
+
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="font-medium text-ink-1">Accent color</div>
+          <div class="text-sm text-ink-3">Brand color used for buttons, links, and active states</div>
+        </div>
+        <div class="flex gap-8 items-center">
+          <!-- Color swatches (app renders these as clickable circles) -->
+          <!-- Selected swatch gets: border: 2px solid var(--ink-1) -->
+          <span class="color-swatch" style="background: #1a1682;" title="Indigo"></span>
+          <span class="color-swatch" style="background: #0d7377;" title="Teal"></span>
+          <span class="color-swatch" style="background: #7c5cbf;" title="Violet"></span>
+          <span class="color-swatch" style="background: #c05580;" title="Rose"></span>
+          <input type="color" class="form-input" style="width: 32px; height: 32px; padding: 2px;" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Setting group: Features (toggles) -->
+  <div class="card mb-16">
+    <div class="card-header">
+      <h3 class="card-title">Features</h3>
+    </div>
+    <div class="flex flex-col gap-12 p-16">
+
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="font-medium text-ink-1">Feature A</div>
+          <div class="text-sm text-ink-3">Description of what this feature controls</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" class="toggle-input" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="font-medium text-ink-1">Feature B</div>
+          <div class="text-sm text-ink-3">Description of what this feature controls</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" class="toggle-input" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Danger zone -->
+  <div class="card" style="border-color: var(--err-dim);">
+    <div class="card-header" style="border-color: var(--err-dim);">
+      <h3 class="card-title text-err">Danger Zone</h3>
+    </div>
+    <div class="flex justify-between items-center p-16">
+      <div>
+        <div class="font-medium text-ink-1">Reset application</div>
+        <div class="text-sm text-ink-3">Clear all data and return to initial state</div>
+      </div>
+      <button class="btn btn-danger">Reset</button>
+    </div>
+  </div>
+</div>

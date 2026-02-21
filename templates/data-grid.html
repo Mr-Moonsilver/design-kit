@@ -1,0 +1,110 @@
+<!--
+  Template: Data Grid
+  ─────────────────────────────────────────
+  Filterable table with toolbar: pill filters,
+  dropdown filter, search, bulk actions, add button.
+  Table with checkbox selection, sortable columns.
+
+  Used for: Resource lists, capability lists,
+  inventory pages, any CRUD table view.
+-->
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Resources</h1>
+      <p class="page-meta">42 items</p>
+    </div>
+    <div class="flex gap-8">
+      <button class="btn btn-export">
+        <!-- Download icon-sm --> Export
+      </button>
+      <button class="btn btn-accent">
+        <!-- Plus icon-sm --> Add Resource
+      </button>
+    </div>
+  </div>
+
+  <!-- Toolbar: filters + search -->
+  <div class="toolbar">
+    <!-- Pill filters (type/category toggle) -->
+    <div class="pill-group">
+      <button class="pill active">All</button>
+      <button class="pill">Category A</button>
+      <button class="pill">Category B</button>
+      <button class="pill">Category C</button>
+    </div>
+
+    <!-- Dropdown filter -->
+    <select class="form-select" style="width: auto;">
+      <option>All statuses</option>
+      <option>Active</option>
+      <option>Archived</option>
+    </select>
+
+    <!-- Search (auto-pushed right by .toolbar's ml-auto rule) -->
+    <div class="search-wrapper">
+      <input type="text" class="search-input" placeholder="Search..." />
+    </div>
+  </div>
+
+  <!-- Bulk action bar (visible when rows selected) -->
+  <!--
+  <div class="toolbar" style="background: var(--accent-dim); padding: var(--s8) var(--s12); border-radius: var(--r1);">
+    <span class="text-sm font-medium">3 selected</span>
+    <div class="flex gap-8 ml-auto">
+      <button class="btn btn-sm">Export Selected</button>
+      <button class="btn btn-sm btn-danger">Delete Selected</button>
+    </div>
+  </div>
+  -->
+
+  <!-- Data table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width: 32px;">
+          <input type="checkbox" title="Select all" />
+        </th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Updated</th>
+        <th style="width: 80px; text-align: right;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <span class="font-medium text-ink-1">Item Name</span>
+          <div class="text-xs text-ink-3">Optional subtitle or description</div>
+        </td>
+        <td><span class="badge">Category A</span></td>
+        <td><span class="badge badge-ok">Active</span></td>
+        <td class="text-sm text-ink-3 tabular-nums">2026-02-21</td>
+        <td style="text-align: right;">
+          <div class="flex gap-4 justify-end">
+            <button class="btn btn-icon" title="Edit">
+              <!-- Pencil icon-sm -->
+            </button>
+            <button class="btn btn-icon" title="Delete">
+              <!-- Trash2 icon-sm -->
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Empty state (when no results) -->
+  <!--
+  <div class="empty-state">
+    <div class="empty-state-icon">📋</div>
+    <div class="empty-state-title">No resources found</div>
+    <div class="empty-state-desc">
+      Try adjusting your filters or add a new resource.
+    </div>
+  </div>
+  -->
+</div>

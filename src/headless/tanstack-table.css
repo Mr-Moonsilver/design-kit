@@ -1,0 +1,182 @@
+/* ══════════════════════════════════════════════════
+   TanStack Table
+   Styles for @tanstack/react-table markup patterns.
+   TanStack renders plain <table> elements — these
+   styles target role attributes and common class
+   conventions used with the library.
+   ══════════════════════════════════════════════════ */
+
+/* ── Base table (applied via .table or role) ── */
+[role="table"],
+.tanstack-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-13);
+}
+
+/* ── Header ── */
+[role="table"] thead,
+.tanstack-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+}
+
+[role="table"] th,
+.tanstack-table th {
+  padding: var(--s8) var(--s12);
+  text-align: left;
+  font-size: var(--t-11);
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--line-strong);
+  white-space: nowrap;
+}
+
+/* ── Sortable header ── */
+[role="table"] th[aria-sort],
+.tanstack-table th[aria-sort] {
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--dt-fast);
+}
+
+[role="table"] th[aria-sort]:hover,
+.tanstack-table th[aria-sort]:hover {
+  color: var(--ink-1);
+}
+
+[role="table"] th[aria-sort="ascending"],
+[role="table"] th[aria-sort="descending"],
+.tanstack-table th[aria-sort="ascending"],
+.tanstack-table th[aria-sort="descending"] {
+  color: var(--ink-1);
+}
+
+/* Sort indicator via ::after */
+[role="table"] th[aria-sort="ascending"]::after,
+.tanstack-table th[aria-sort="ascending"]::after {
+  content: " \2191"; /* ↑ */
+  font-size: var(--t-10);
+}
+
+[role="table"] th[aria-sort="descending"]::after,
+.tanstack-table th[aria-sort="descending"]::after {
+  content: " \2193"; /* ↓ */
+  font-size: var(--t-10);
+}
+
+/* ── Body rows ── */
+[role="table"] td,
+.tanstack-table td {
+  padding: var(--s8) var(--s12);
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+[role="table"] tbody tr:hover,
+.tanstack-table tbody tr:hover {
+  background: var(--bg-inset);
+}
+
+/* ── Selected row ── */
+[role="table"] tr[data-selected="true"],
+.tanstack-table tr[data-selected="true"],
+[role="table"] tr.selected,
+.tanstack-table tr.selected {
+  background: var(--accent-dim);
+}
+
+/* ── Expanded row ── */
+[role="table"] tr[data-expanded="true"],
+.tanstack-table tr[data-expanded="true"] {
+  background: var(--bg-inset);
+}
+
+[role="table"] tr[data-expanded="true"] + tr,
+.tanstack-table tr[data-expanded="true"] + tr {
+  background: var(--bg);
+}
+
+/* ── Pinned columns ── */
+[role="table"] th[data-pinned],
+[role="table"] td[data-pinned],
+.tanstack-table th[data-pinned],
+.tanstack-table td[data-pinned] {
+  position: sticky;
+  background: inherit;
+  z-index: 1;
+}
+
+[role="table"] th[data-pinned="left"],
+[role="table"] td[data-pinned="left"],
+.tanstack-table th[data-pinned="left"],
+.tanstack-table td[data-pinned="left"] {
+  left: 0;
+  border-right: 1px solid var(--line-strong);
+}
+
+[role="table"] th[data-pinned="right"],
+[role="table"] td[data-pinned="right"],
+.tanstack-table th[data-pinned="right"],
+.tanstack-table td[data-pinned="right"] {
+  right: 0;
+  border-left: 1px solid var(--line-strong);
+}
+
+/* ── Column resizer ── */
+.tanstack-table .resizer,
+[role="table"] .resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.tanstack-table .resizer:hover,
+[role="table"] .resizer:hover {
+  background: var(--accent);
+  opacity: 0.3;
+}
+
+.tanstack-table .resizer.isResizing,
+[role="table"] .resizer.isResizing {
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+/* ── Empty state ── */
+[role="table"] .table-empty,
+.tanstack-table .table-empty {
+  text-align: center;
+  padding: var(--s48);
+  color: var(--ink-3);
+  font-size: var(--t-13);
+}
+
+/* ── Pagination bar ── */
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s8) 0;
+  font-size: var(--t-12);
+  color: var(--ink-3);
+}
+
+.table-pagination-buttons {
+  display: flex;
+  gap: var(--s4);
+}
+
+.table-pagination-info {
+  font-variant-numeric: tabular-nums;
+}

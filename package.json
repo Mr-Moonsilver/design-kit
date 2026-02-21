@@ -1,0 +1,16 @@
+{
+  "name": "design-kit",
+  "version": "1.0.0",
+  "description": "CSS-only Swiss Rationalist design system for internal tools",
+  "main": "src/index.css",
+  "files": [
+    "src/"
+  ],
+  "keywords": [
+    "css",
+    "design-system",
+    "swiss-rationalist"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}

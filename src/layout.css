@@ -1,0 +1,372 @@
+/* ══════════════════════════════════════════════════
+   DESIGN KIT — Layout
+   Topbar + sidebar + content shell.
+   Every internal tool shares this skeleton.
+   ══════════════════════════════════════════════════ */
+
+/* ── Topbar — 48px, flat, opaque, 1px rule ── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--topbar-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--s20);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s8);
+}
+
+.brand-mark {
+  font-size: var(--t-15);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+}
+
+.brand-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--line-strong);
+  align-self: center;
+}
+
+.brand-page {
+  font-size: var(--t-11);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* User tag */
+.user-tag {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+  font-size: var(--t-11);
+  color: var(--ink-2);
+  letter-spacing: 0.02em;
+}
+
+.user-initial {
+  width: 22px; height: 22px;
+  background: var(--ink-1);
+  color: var(--surface);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r2);
+  flex-shrink: 0;
+}
+
+/* Theme toggle */
+.theme-btn {
+  width: 28px; height: 28px;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink-3);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r2);
+  transition: border-color var(--dt-fast), color var(--dt-fast);
+}
+.theme-btn:hover {
+  border-color: var(--line-strong);
+  color: var(--ink-1);
+}
+
+/* ── Shell — sidebar + content ── */
+.shell {
+  display: flex;
+  margin-top: var(--topbar-h);
+  min-height: calc(100vh - var(--topbar-h));
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.sidebar-block {
+  padding: var(--s16) 0 var(--s8);
+}
+
+.sidebar-label {
+  font-size: var(--t-10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0 var(--s16) var(--s8);
+}
+
+.sidebar-rule {
+  height: 1px;
+  background: var(--line);
+  margin: 0;
+}
+
+/* Nav links */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: var(--s8) var(--s16);
+  font-size: var(--t-13);
+  font-weight: 400;
+  color: var(--ink-2);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--dt-fast);
+  border-left: 2px solid transparent;
+}
+
+.nav-link:hover { color: var(--ink-1); }
+
+.nav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+  border-left-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Nav section (collapsible groups) */
+.nav-section {
+  margin-bottom: var(--s16);
+}
+
+.nav-section-title {
+  font-size: var(--t-10);
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--s8);
+  padding: 0 var(--s16);
+}
+
+.nav-section-title-clickable {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s4) var(--s16);
+  border-radius: var(--r1);
+  transition: background var(--dt-fast);
+}
+.nav-section-title-clickable:hover { background: var(--bg-inset); }
+
+.nav-dropdown-arrow {
+  font-size: 0.6rem;
+  opacity: 0.6;
+}
+
+.nav-link-numbered {
+  display: flex;
+  gap: var(--s8);
+}
+.nav-link-num {
+  flex-shrink: 0;
+  width: 1em;
+  text-align: right;
+  opacity: 0.5;
+}
+
+/* Sidebar extra (injected content like capability lists) */
+.sidebar-extra {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--s4) 0;
+  min-height: 0;
+}
+
+.sidebar-extra::-webkit-scrollbar { width: 3px; }
+.sidebar-extra::-webkit-scrollbar-thumb { background: var(--line-strong); }
+
+/* Sidebar toggle */
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink-3);
+  font-size: var(--t-13);
+  transition: color var(--dt-fast);
+  border-bottom: 1px solid var(--line);
+}
+.sidebar-toggle:hover { color: var(--ink-1); }
+
+/* Collapsed sidebar */
+.shell--collapsed .sidebar {
+  width: 48px;
+  overflow: hidden;
+}
+.shell--collapsed .sidebar .sidebar-nav,
+.shell--collapsed .sidebar .sidebar-extra,
+.shell--collapsed .sidebar .sidebar-block {
+  display: none;
+}
+.shell--collapsed .content {
+  margin-left: 48px;
+}
+
+/* ── Content area ── */
+.content {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  min-height: calc(100vh - var(--topbar-h));
+  background: var(--bg);
+}
+
+/* ── Page — content padding ── */
+.page {
+  padding: var(--s20);
+}
+
+/* ── Page header — title + meta + controls ── */
+.page-header {
+  padding: var(--s16) var(--s24);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s16);
+  flex-shrink: 0;
+}
+
+.page-heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s12);
+}
+
+.page-title {
+  font-size: var(--t-17);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink-1);
+}
+
+.page-subtitle {
+  font-size: var(--t-12);
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+
+.page-meta {
+  font-size: var(--t-11);
+  color: var(--ink-3);
+  letter-spacing: 0.01em;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+}
+
+/* ── Impersonation banner ── */
+.impersonation-banner {
+  background: var(--warn-dim);
+  border-bottom: 1px solid var(--warn);
+  color: var(--ink-1);
+  padding: var(--s4) var(--s20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s12);
+  font-size: var(--t-13);
+}
+
+.impersonation-banner .btn {
+  background: var(--warn);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+.impersonation-banner .btn:hover { opacity: 0.85; }
+
+/* ── Two-column layout ── */
+.two-column {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--s12);
+}
+
+/* ── Login page ── */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.login-card {
+  background: var(--surface);
+  padding: var(--s24);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: var(--s20);
+}
+
+.login-title h1 {
+  font-size: var(--t-20);
+  color: var(--accent);
+  margin-bottom: var(--s4);
+}
+
+.login-title p {
+  color: var(--ink-2);
+  font-size: var(--t-13);
+}

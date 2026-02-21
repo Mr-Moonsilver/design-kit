@@ -1,0 +1,79 @@
+/* ══════════════════════════════════════════════════
+   dnd-kit
+   Styles for @dnd-kit drag-and-drop states.
+   Uses data attributes set by dnd-kit's useSortable
+   and DragOverlay components.
+   ══════════════════════════════════════════════════ */
+
+/* ── Draggable item ── */
+[data-dnd-draggable] {
+  touch-action: none;
+}
+
+/* ── Active dragging (source element) ── */
+[data-dnd-dragging="true"],
+.dnd-dragging {
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* ── Drag overlay (floating clone) ── */
+[data-dnd-overlay],
+.dnd-overlay {
+  z-index: 300;
+  cursor: grabbing;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--accent);
+  border-radius: var(--r1);
+  background: var(--surface);
+}
+
+/* ── Drop target ── */
+[data-dnd-over="true"],
+.dnd-over {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  transition: background var(--dt-fast), border-color var(--dt-fast);
+}
+
+/* ── Sortable item (in a sortable list) ── */
+[data-dnd-sortable] {
+  transition: transform 200ms var(--ease);
+}
+
+[data-dnd-sortable][data-dnd-transition="true"] {
+  transition: transform 200ms var(--ease);
+}
+
+/* ── Drag handle ── */
+.dnd-handle,
+[data-dnd-handle] {
+  cursor: grab;
+  color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s4);
+  border-radius: var(--r1);
+  transition: color var(--dt-fast), background var(--dt-fast);
+}
+
+.dnd-handle:hover,
+[data-dnd-handle]:hover {
+  color: var(--ink-2);
+  background: var(--bg-inset);
+}
+
+.dnd-handle:active,
+[data-dnd-handle]:active {
+  cursor: grabbing;
+}
+
+/* ── Drop placeholder ── */
+.dnd-placeholder,
+[data-dnd-placeholder] {
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--r1);
+  background: var(--bg-inset);
+  opacity: 0.6;
+}

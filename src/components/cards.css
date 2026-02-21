@@ -1,0 +1,75 @@
+/* ══════════════════════════════════════════════════
+   Cards
+   1px border, minimal radius, no shadows at rest.
+   Hover: border strengthens + subtle shadow.
+   ══════════════════════════════════════════════════ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r1);
+  padding: var(--s16);
+  margin-bottom: var(--s16);
+  transition:
+    border-color var(--dt-fast) var(--ease),
+    box-shadow var(--dt-fast) var(--ease);
+}
+
+.card:hover {
+  border-color: var(--line-strong);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--s12);
+}
+
+.card-title {
+  font-size: var(--t-15);
+  font-weight: 600;
+}
+
+/* Clickable card */
+.card-clickable {
+  cursor: pointer;
+}
+.card-clickable:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Selected card (accent border) */
+.card.selected {
+  border-color: var(--accent);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Stat card */
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r1);
+  padding: var(--s16);
+}
+
+.stat-value {
+  font-size: var(--t-20);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: var(--t-11);
+  color: var(--ink-3);
+  margin-top: var(--s4);
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--s12);
+}
