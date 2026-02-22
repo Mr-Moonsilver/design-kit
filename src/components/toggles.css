@@ -71,3 +71,10 @@
 .toggle-compact .toggle-input:checked + .toggle-slider::after {
   transform: translateX(12px);
 }
+
+/* Dark label (high contrast, for use on light card backgrounds) */
+.toggle-label-dark {
+  font-size: var(--t-11);
+  color: var(--ink-1);
+  font-weight: 400;
+}

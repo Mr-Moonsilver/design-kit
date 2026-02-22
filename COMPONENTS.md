@@ -13,6 +13,7 @@ Before building any page, check if a template exists. Templates define **where t
 | User management | `templates/admin-users.html` | User lists, team management, access control |
 | Settings / config | `templates/admin-settings.html` | App configuration, feature toggles, preferences |
 | Data grid (CRUD) | `templates/data-grid.html` | Resource lists, inventory, any filterable table |
+| Linking grid | `templates/linking-grid.html` | Matrix views, resource-capability linking, grid with sticky context card |
 | List + detail | `templates/list-detail.html` | Qualification views, inspection, select-to-view |
 | Dashboard / home | `templates/dashboard.html` | Overview pages, stat summaries, quick actions |
 | Login / auth | `templates/login.html` | SSO entry, user selection, authentication |
@@ -50,9 +51,10 @@ When you build a page that works well and doesn't match an existing template:
 | Drag and drop | dnd-kit | `headless/dnd-kit.css` | `@dnd-kit/core @dnd-kit/sortable` |
 | Icons | Lucide React | `icons.css` | `lucide-react` |
 | Simple forms | Plain HTML + kit classes | `components/forms.css` | None |
+| Matrix grids | Plain HTML + kit classes | `components/matrix-grid.css` | None |
 | Cards / lists | Plain HTML + kit classes | `components/cards.css` | None |
 | Buttons | Plain HTML + kit classes | `components/buttons.css` | None |
-| Badges / pills | Plain HTML + kit classes | `components/badges.css`, `components/pills.css` | None |
+| Badges / chips | Plain HTML + kit classes | `components/badges.css`, `components/chips.css` | None |
 | Tabs | Plain HTML + kit classes | `components/tabs.css` | None |
 | Toggles | Plain HTML + kit classes | `components/toggles.css` | None |
 
@@ -64,6 +66,75 @@ Use plain HTML + kit CSS classes for everything unless the pattern requires:
 - Drag reordering → use dnd-kit
 
 Do NOT reach for a library when a `<button class="btn">` will do.
+
+---
+
+## Matrix Grid
+
+A CSS Grid with sticky row + column headers and a corner cell. Open-frame border model (no outer border, no radius). Used for linking matrices, qualification tables, and any two-axis data view.
+
+### Structure
+
+```html
+<div class="matrix-grid-container">
+  <div class="matrix-grid">
+    <!-- Row 1: corner + column headers -->
+    <div class="matrix-grid-corner"></div>
+    <div class="matrix-grid-col">Col A</div>
+    <div class="matrix-grid-col">Col B</div>
+
+    <!-- Row 2+: row header + data cells -->
+    <div class="matrix-grid-row">Row Label</div>
+    <div class="matrix-grid-cell">Content</div>
+    <div class="matrix-grid-cell">Content</div>
+  </div>
+</div>
+```
+
+### Classes
+
+| Class | Purpose |
+|---|---|
+| `.matrix-grid-container` | Scrollable wrapper (`overflow: auto`) |
+| `.matrix-grid` | CSS Grid. Sets border-top + border-left; cells close right + bottom |
+| `.matrix-grid-corner` | Top-left sticky cell — sticky both axes, z-index 3 |
+| `.matrix-grid-col` | Column header — sticky top, z-index 2, `--surface` bg, `--t-13` |
+| `.matrix-grid-row` | Row header — sticky left, z-index 1, vertical text, uppercase, tracked |
+| `.matrix-grid-cell` | Content cell — flex-column stack by default |
+| `.matrix-grid-cell--wrap` | Modifier — flex-row wrap for chips, small cards, tags |
+
+### Column count
+
+Column count defaults to `48px repeat(6, minmax(190px, 1fr))` (corner + 6 columns). Override with the `--matrix-cols` custom property:
+
+```html
+<!-- 4-column grid -->
+<div class="matrix-grid"
+     style="--matrix-cols: 48px repeat(4, minmax(190px, 1fr))">
+```
+
+```tsx
+// In React — type the style object
+<div className="matrix-grid"
+     style={{ '--matrix-cols': '48px repeat(4, minmax(190px, 1fr))' } as React.CSSProperties}>
+```
+
+### Cell variants
+
+| Variant | Use for |
+|---|---|
+| `.matrix-grid-cell` (default) | Stacked content — capability cards, ratings, tall items |
+| `.matrix-grid-cell--wrap` | Wrapped chips — resource badges, small tags, compact items |
+
+### Sticky behavior
+
+- **Corner** (z-index 3): Stays fixed at top-left during both horizontal and vertical scroll
+- **Column headers** (z-index 2): Stick to top on vertical scroll
+- **Row headers** (z-index 1): Stick to left on horizontal scroll
+
+### Template
+
+See `templates/linking-grid.html` for a full page layout using the matrix grid with a detail card above it.
 
 ---
 

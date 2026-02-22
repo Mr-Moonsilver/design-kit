@@ -23,7 +23,7 @@
   gap: var(--s4);
 }
 
-/* Filter pills container */
+/* Filter chips container (legacy alias) */
 .filter-pills {
   display: flex;
   flex-wrap: wrap;

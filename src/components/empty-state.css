@@ -30,3 +30,11 @@
   margin: 0 auto;
   line-height: 1.5;
 }
+
+/* Bordered card wrapper for empty states */
+.empty-state-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  padding: var(--s48);
+}

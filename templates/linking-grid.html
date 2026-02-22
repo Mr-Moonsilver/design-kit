@@ -1,0 +1,100 @@
+<!--
+  Template: Linking Grid
+  ─────────────────────────────────────────
+  Full-height page with a detail card pinned
+  at top and a scrollable matrix grid below.
+  Sidebar shows selectable capability list.
+
+  Layout: Card header (fixed) → grid (scrolls).
+  The page itself does NOT scroll — only the
+  grid container scrolls vertically and horizontally.
+
+  Used for: Resource-capability linking, matrix
+  views, any grid with a sticky context card above.
+
+  CSS: components/matrix-grid.css, components/cards.css
+-->
+
+<div class="linking-page">
+
+  <!-- Detail card — stays fixed at top -->
+  <div class="detail-card">
+    <div class="detail-card-header">
+      <h4 class="detail-card-title">Selected Item Title</h4>
+      <div class="detail-card-header-tags">
+        <span class="meta-tag meta-tag--cat-1">Domain</span>
+        <span class="meta-tag meta-tag--cat-3">Nature</span>
+        <!-- CSV actions (top-right) -->
+        <button class="btn btn-ghost btn-sm">Upload CSV</button>
+        <button class="btn btn-ghost btn-sm">Export CSV</button>
+      </div>
+    </div>
+    <p class="detail-card-description">
+      Description of the selected item. This area is optional.
+    </p>
+
+    <!-- Footer: toggles + filters + search — all in one row -->
+    <div class="detail-card-footer">
+      <!-- Left: toggles -->
+      <label class="toggle">
+        <input type="checkbox" class="toggle-input" />
+        <span class="toggle-slider toggle-slider-ok"></span>
+        <span class="toggle-label-dark">Completed</span>
+      </label>
+
+      <!-- Spacer pushes right-side controls -->
+      <div style="flex:1; min-width:var(--s16)"></div>
+
+      <!-- Right: filter chips + search + add -->
+      <div class="search-box">
+        <input type="text" placeholder="Filter items..." />
+      </div>
+      <button class="btn btn-sm btn-accent">+ Add</button>
+      <span class="text-xs text-mono text-ink-3">12 items linked</span>
+    </div>
+  </div>
+
+  <!-- Matrix grid — this is the ONLY scrolling area -->
+  <div class="matrix-grid-container">
+    <div class="matrix-grid"
+         style="--matrix-cols: 48px repeat(4, minmax(190px, 1fr))">
+      <!-- Header row: corner + column headers -->
+      <div class="matrix-grid-corner"></div>
+      <div class="matrix-grid-col">Column A</div>
+      <div class="matrix-grid-col">Column B</div>
+      <div class="matrix-grid-col">Column C</div>
+      <div class="matrix-grid-col">Column D</div>
+
+      <!-- Data row: row header + cells -->
+      <div class="matrix-grid-row">Row Label</div>
+      <div class="matrix-grid-cell matrix-grid-cell--wrap">
+        <div class="resource-card selected">Item 1</div>
+      </div>
+      <div class="matrix-grid-cell matrix-grid-cell--wrap">
+        <div class="resource-card">Item 2</div>
+      </div>
+      <div class="matrix-grid-cell matrix-grid-cell--wrap"></div>
+      <div class="matrix-grid-cell matrix-grid-cell--wrap">
+        <div class="resource-card">Item 3</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--
+  CSS requirements (in app styles):
+
+  .linking-page {
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .linking-page .matrix-grid-container {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+  }
+-->

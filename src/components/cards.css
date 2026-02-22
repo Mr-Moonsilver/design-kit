@@ -73,3 +73,91 @@
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: var(--s12);
 }
+
+/* ── Detail Card ──────────────────────────────────
+   Context card: title + header tags, description body
+   with metadata, optional footer with actions.
+   Used for item-detail views, sticky context headers.
+   ───────────────────────────────────────────────── */
+
+.detail-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  padding: var(--s20);
+  margin-bottom: var(--s16);
+  position: relative;
+}
+
+.detail-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--s16);
+  margin-bottom: var(--s8);
+}
+
+.detail-card-title {
+  font-size: var(--t-20);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.detail-card-header-tags {
+  display: flex;
+  gap: var(--s4);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Body: description left, metadata bottom-right */
+.detail-card-body {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s16);
+}
+
+.detail-card-description {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--t-13);
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin: 0;
+  min-height: calc(3 * 1.6em); /* reserve 3 lines to stabilise card height */
+  /* max-width set dynamically via inline style for ~3 line target */
+}
+
+.detail-card-meta {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: var(--t-12);
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  margin-left: auto; /* flush right */
+}
+
+.detail-card-footer {
+  display: flex;
+  gap: var(--s12);
+  margin-top: var(--s16);
+  padding-top: var(--s12);
+  border-top: 1px solid var(--line);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.detail-card-footer .footer-spacer {
+  flex: 1;
+  min-width: var(--s16);
+}
+
+/* Sticky variant (for fixed-header + scrolling-content layouts) */
+.detail-card--sticky {
+  flex-shrink: 0;
+  z-index: 10;
+  background: var(--bg);
+}

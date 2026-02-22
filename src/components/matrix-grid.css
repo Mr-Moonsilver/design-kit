@@ -1,0 +1,108 @@
+/* ══════════════════════════════════════════════════
+   Matrix Grid
+   Open-frame border model. Sticky row + column
+   headers. Column count set via --matrix-cols or
+   inline grid-template-columns.
+   Swiss flat grid — no radius, no outer border.
+   ══════════════════════════════════════════════════ */
+
+/* ── Container ─────────────────────────────────── */
+
+.matrix-grid-container {
+  overflow: auto;
+  width: 100%;
+}
+
+/* ── Grid ───────────────────────────────────────── */
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: var(--matrix-cols, 48px repeat(6, minmax(190px, 1fr)));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--bg);
+}
+
+/* ── Corner cell ─────────────────────────────────── */
+
+.matrix-grid-corner {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  font-size: var(--t-10);
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+/* ── Column header (sticky top) ─────────────────── */
+
+.matrix-grid-col {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  padding: var(--s12) var(--s16);
+  font-weight: 600;
+  font-size: var(--t-13);
+  color: var(--ink-1);
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+/* ── Row header (sticky left, vertical text) ─────── */
+
+.matrix-grid-row {
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  padding: var(--s16) 0;
+  font-size: var(--t-10);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+/* ── Content cell — default: flex-column stack ───── */
+
+.matrix-grid-cell {
+  background: var(--bg);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: var(--s8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+  align-items: stretch;
+  min-height: 60px;
+}
+
+/* ── Cell modifier: wrap for chips / small cards ─── */
+
+.matrix-grid-cell--wrap {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: center;
+  gap: var(--s4);
+}

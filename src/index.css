@@ -18,8 +18,9 @@
 @import './components/forms.css';
 @import './components/cards.css';
 @import './components/tables.css';
+@import './components/matrix-grid.css';
 @import './components/badges.css';
-@import './components/pills.css';
+@import './components/chips.css';
 @import './components/modals.css';
 @import './components/toggles.css';
 @import './components/panels.css';
