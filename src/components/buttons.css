@@ -65,18 +65,22 @@
 
 /* Icon-only */
 .btn-icon {
-  padding: var(--s8);
-  background: transparent;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: var(--bg-inset);
   border: none;
+  border-radius: var(--r2);
   cursor: pointer;
   color: var(--ink-3);
-  border-radius: var(--r1);
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: all var(--dt-fast);
 }
 .btn-icon:hover {
-  background: var(--bg-inset);
+  background: var(--line);
   color: var(--ink-1);
 }
 

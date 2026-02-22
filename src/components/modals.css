@@ -1,7 +1,6 @@
 /* ══════════════════════════════════════════════════
    Modals
    Centered overlay. Only place with real shadow.
-   No blur on backdrop (Swiss: flat, not frosted).
    ══════════════════════════════════════════════════ */
 
 .modal-overlay {
@@ -12,43 +11,52 @@
   align-items: center;
   justify-content: center;
   z-index: 200;
+  padding: var(--s12);
   animation: fade-in var(--dt-mid) var(--ease);
 }
 
 .modal {
   background: var(--surface);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   border-radius: var(--r2);
   max-width: 480px;
   width: 90%;
   max-height: 90vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
 .modal-header {
-  padding: var(--s16);
+  padding: var(--s16) var(--s20);
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .modal-title {
   font-size: var(--t-15);
   font-weight: 600;
+  margin: 0;
 }
 
 .modal-body {
-  padding: var(--s16);
+  padding: var(--s20);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .modal-footer {
-  padding: var(--s16);
+  padding: var(--s12) var(--s20);
   border-top: 1px solid var(--line);
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: var(--s8);
+  flex-shrink: 0;
 }
 
 /* Close button (for modals and panels) */
@@ -70,8 +78,14 @@
   color: var(--ink-1);
 }
 
-/* Wide modal variant */
+/* Wide modal variant (forms, confirmations) */
 .modal-wide { max-width: 640px; }
+
+/* Full-width modal (data grids, complex layouts) */
+.modal-full {
+  max-width: 95vw;
+  width: 100%;
+}
 
 /* Dark mode shadow */
 [data-theme="dark"] .modal {
