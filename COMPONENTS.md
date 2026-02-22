@@ -51,6 +51,8 @@ When you build a page that works well and doesn't match an existing template:
 | Drag and drop | dnd-kit | `headless/dnd-kit.css` | `@dnd-kit/core @dnd-kit/sortable` |
 | Icons | Lucide React | `icons.css` | `lucide-react` |
 | Simple forms | Plain HTML + kit classes | `components/forms.css` | None |
+| Bare inputs | Plain HTML + kit classes | `components/forms.css` | None |
+| Selectable buttons | Plain HTML + kit classes | `components/forms.css` | None |
 | Matrix grids | Plain HTML + kit classes | `components/matrix-grid.css` | None |
 | Cards / lists | Plain HTML + kit classes | `components/cards.css` | None |
 | Buttons | Plain HTML + kit classes | `components/buttons.css` | None |
