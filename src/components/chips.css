@@ -11,12 +11,12 @@
   flex-wrap: wrap;
 }
 
-/* Chip (rounded variant for toolbars) */
+/* Chip (filter variant for toolbars) */
 .chip {
   padding: 4px 14px;
   font-size: var(--t-12);
   font-weight: 500;
-  border-radius: var(--r-full);
+  border-radius: var(--r2);
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink-2);
