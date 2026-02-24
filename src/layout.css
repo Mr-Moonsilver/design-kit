@@ -34,8 +34,21 @@
 /* Brand */
 .brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--s8);
+}
+
+/* Brand logo — optional image in topbar brand area */
+.brand-logo {
+  height: 24px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .brand-logo {
+  filter: invert(1);
 }
 
 .brand-mark {
@@ -156,11 +169,14 @@
   color: var(--ink-2);
   cursor: pointer;
   text-decoration: none;
-  transition: color var(--dt-fast);
+  transition: color var(--dt-fast), background var(--dt-fast), border-color var(--dt-fast);
   border-left: 2px solid transparent;
 }
 
-.nav-link:hover { color: var(--ink-1); }
+.nav-link:hover {
+  color: var(--ink-1);
+  background: color-mix(in srgb, var(--accent-dim) 50%, transparent);
+}
 
 .nav-link.active {
   color: var(--accent);
