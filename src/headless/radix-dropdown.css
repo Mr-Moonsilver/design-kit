@@ -61,6 +61,13 @@
   animation: dk-dropdown-out var(--dt-fast) var(--ease);
 }
 
+/* Dark mode — stronger shadow */
+[data-theme="dark"] [data-radix-select-content],
+[data-theme="dark"] [data-radix-dropdown-menu-content],
+[data-theme="dark"] [data-radix-dropdown-menu-sub-content] {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
 /* ── Viewport (Select scrollable area) ── */
 [data-radix-select-viewport] {
   padding: 0;

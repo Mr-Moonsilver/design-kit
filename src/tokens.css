@@ -81,26 +81,26 @@
    ══════════════════════════════════════════════════ */
 
 [data-theme="dark"] {
-  --bg:          #111110;
-  --surface:     #191917;
-  --bg-inset:    #0d0d0c;
+  --bg:          #141413;
+  --surface:     #1c1c1a;
+  --bg-inset:    #0f0f0e;
 
-  --ink-1: #e8e8e4;
-  --ink-2: #8a8a86;
-  --ink-3: #505050;
+  --ink-1: #d8d8d4;         /* Softer primary — less bleak than pure white */
+  --ink-2: #9e9e9a;         /* Readable body text — was fading at #8a8a86 */
+  --ink-3: #686864;         /* Visible tertiary — was invisible at #505050 */
 
-  --line:        #272724;
-  --line-strong: #383836;
+  --line:        #2e2e2b;   /* Borders register without shouting */
+  --line-strong: #42423f;   /* Hover borders, emphasis dividers */
 
-  --accent:       #6b68e0;
-  --accent-hover: #8280e8;
-  --accent-dim:   #1a1930;
-  --accent-mid:   #4a48a0;
+  --accent:       #7d7af0;  /* Punchier on dark backgrounds */
+  --accent-hover: #9290f5;
+  --accent-dim:   #25233e;  /* Visibly tinted vs neutral surface */
+  --accent-mid:   #5856b0;
 
   --ok:       #5cc08e;
-  --ok-dim:   #0d2818;
+  --ok-dim:   #122a1c;
   --warn:     #e8a545;
-  --warn-dim: #1a1400;
+  --warn-dim: #221a08;
   --err:      #ff6b6b;
-  --err-dim:  #1a0808;
+  --err-dim:  #281010;
 }

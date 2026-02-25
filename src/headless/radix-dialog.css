@@ -81,6 +81,17 @@
   line-height: 1.5;
 }
 
+/* ── Dark mode — deeper overlay & stronger shadow ── */
+[data-theme="dark"] [data-radix-dialog-overlay],
+[data-theme="dark"] [data-radix-alert-dialog-overlay] {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] [data-radix-dialog-content],
+[data-theme="dark"] [data-radix-alert-dialog-content] {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
 /* ── Close button ── */
 [data-radix-dialog-close] {
   position: absolute;

@@ -37,9 +37,20 @@
   animation-name: dk-tooltip-in-left;
 }
 
+/* ── Dark mode — stay dark, don't invert to cream ── */
+[data-theme="dark"] [data-radix-tooltip-content] {
+  background: var(--line-strong);
+  color: var(--ink-1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
 /* ── Arrow ── */
 [data-radix-tooltip-arrow] {
   fill: var(--ink-1);
+}
+
+[data-theme="dark"] [data-radix-tooltip-arrow] {
+  fill: var(--line-strong);
 }
 
 /* ── Animations ── */

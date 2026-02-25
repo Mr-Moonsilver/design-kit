@@ -39,6 +39,10 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
+[data-theme="dark"] .card-clickable:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
 /* Selected card (accent border) */
 .card.selected {
   border-color: var(--accent);
