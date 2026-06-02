@@ -35,9 +35,13 @@
   left: 2px;
   width: 14px;
   height: 14px;
-  background: white;
+  background: #fff;
   border-radius: var(--r-full);
   transition: transform 0.15s;
+}
+
+[data-theme="dark"] .toggle-slider::after {
+  background: var(--ink-1);
 }
 
 .toggle-input:checked + .toggle-slider {

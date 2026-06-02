@@ -87,20 +87,22 @@
 
   --ink-1: #d8d8d4;         /* Softer primary — less bleak than pure white */
   --ink-2: #9e9e9a;         /* Readable body text — was fading at #8a8a86 */
-  --ink-3: #686864;         /* Visible tertiary — was invisible at #505050 */
+  --ink-3: #8a8a86;         /* Tertiary — lifted to ~4.5:1 on surface for small text */
 
-  --line:        #2e2e2b;   /* Borders register without shouting */
-  --line-strong: #42423f;   /* Hover borders, emphasis dividers */
+  --line:        #3a3a37;   /* Borders register without shouting */
+  --line-strong: #5e5e5a;   /* ≥3:1 structural separator — so lines need not borrow --accent */
 
+  /* Accent: these four are RUNTIME-DERIVED per theme by AccentContext.
+     The values below are only the pre-hydration fallback for the default. */
   --accent:       #7d7af0;  /* Punchier on dark backgrounds */
   --accent-hover: #9290f5;
-  --accent-dim:   #25233e;  /* Visibly tinted vs neutral surface */
-  --accent-mid:   #5856b0;
+  --accent-dim:   #25233e;  /* Low-lightness tint — never a near-white slab */
+  --accent-mid:   #6d6bd0;  /* ≥3:1 for outlines/progress on dark */
 
   --ok:       #5cc08e;
-  --ok-dim:   #122a1c;
+  --ok-dim:   #16331f;
   --warn:     #e8a545;
-  --warn-dim: #221a08;
+  --warn-dim: #2e2410;
   --err:      #ff6b6b;
-  --err-dim:  #281010;
+  --err-dim:  #341616;
 }
