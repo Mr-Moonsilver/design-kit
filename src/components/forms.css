@@ -111,12 +111,17 @@
   color: var(--ink-3);
 }
 
-/* Title variant — larger, bolder */
+/* Title variant — larger, bolder. Always a single line (ellipsis when the
+   full title doesn't fit) so a long name never bloats a header's height —
+   pair with a `title` attribute on the element for the full text on hover. */
 .form-input--bare.bare-title {
   font-size: var(--t-20);
   font-weight: 700;
   letter-spacing: -0.015em;
   border-bottom-width: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Selectable group — rectangular toggle buttons ──
