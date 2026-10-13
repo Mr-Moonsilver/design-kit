@@ -55,3 +55,13 @@
   padding: var(--s4) var(--s8);
   font-size: var(--t-12);
 }
+
+/* Sticky header variant — keeps the header row pinned while the page
+   scrolls. Offset by the fixed topbar height so headers don't slide under
+   it. Use on full-page data tables (not tables nested in scroll panels). */
+.table-sticky thead th {
+  position: sticky;
+  top: var(--topbar-h, 0px);
+  z-index: 2;
+  background: var(--surface);
+}
