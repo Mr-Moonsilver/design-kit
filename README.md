@@ -57,6 +57,34 @@ Add `data-theme="dark"` to the `<html>` element. All tokens auto-swap.
 document.documentElement.setAttribute('data-theme', 'dark');
 ```
 
+## Logo Placement
+
+The kit has two logo slots: `.brand-logo` in the topbar (top-left) and
+`.sidebar-logo` inside `.sidebar-footer` (bottom-left). Render both and let the
+user pick with `data-logo` on the `<html>` element — the other slot is hidden.
+Persist the choice like the theme (`localStorage` key `logo-position`).
+
+```html
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="brand">
+      <img class="brand-logo" src="/logo.svg" alt="Acme" />
+      Acme Tool<span class="brand-sep"></span><span class="brand-page">Dashboard</span>
+    </div>
+  </div>
+</header>
+<aside class="sidebar">
+  …
+  <div class="sidebar-footer"><img class="sidebar-logo" src="/logo.svg" alt="Acme" /></div>
+</aside>
+```
+
+```js
+document.documentElement.setAttribute('data-logo', 'bottom'); // or 'top'
+```
+
+Without `data-logo`, both slots show as authored (backwards compatible).
+
 ## Token Customization
 
 Override any token in your app's CSS:

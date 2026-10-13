@@ -51,6 +51,35 @@
   filter: invert(1);
 }
 
+/* ── Logo placement — top-left or bottom-left, user-selectable ──
+   Two slots: `.brand-logo` in the topbar brand area (top-left) and
+   `.sidebar-logo` inside `.sidebar-footer` at the foot of the sidebar
+   (bottom-left). Put BOTH in the DOM — each with its own `src` if the artwork
+   differs per slot (e.g. a compact mark up top, the full wordmark below) — and
+   let the user choose with `data-logo="top" | "bottom"` on <html>, persisted
+   like the theme (localStorage key `logo-position`). Without the attribute
+   both slots show as authored, so existing apps are unaffected. */
+.sidebar-footer {
+  margin-top: auto;            /* pins the slot to the bottom of the sidebar */
+  padding: var(--s16);
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  opacity: 0.7;
+  object-fit: contain;
+}
+
+[data-theme="dark"] .sidebar-logo {
+  filter: invert(1);
+}
+
+[data-logo="top"] .sidebar-footer { display: none; }
+[data-logo="bottom"] .brand-logo  { display: none; }
+
 .brand-mark {
   font-size: var(--t-15);
   font-weight: 700;
@@ -256,6 +285,7 @@
 .sidebar-toggle:hover { color: var(--ink-1); }
 
 /* Collapsed sidebar */
+.shell--collapsed .sidebar .sidebar-footer { display: none; }
 .shell--collapsed .sidebar {
   width: 48px;
   overflow: hidden;

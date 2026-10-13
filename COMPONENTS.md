@@ -338,6 +338,25 @@ function SortableItem({ id }) {
 
 ---
 
+## Logo Placement (top-left vs bottom-left)
+
+Two slots, both from `layout.css`:
+
+| Slot | Markup | Where |
+|---|---|---|
+| Top-left | `<img class="brand-logo" …>` as the first child of `.brand` in the topbar | 24px tall, inverted in dark mode |
+| Bottom-left | `<div class="sidebar-footer"><img class="sidebar-logo" …></div>` as the **last** child of `.sidebar` | 22px tall, 70 % opacity, inverted in dark mode, hidden when the sidebar is collapsed |
+
+Rules:
+
+1. Render **both** slots. Each `<img>` has its own `src`, so the artwork can differ per position (compact mark up top, wordmark below).
+2. The user chooses the position: set `data-logo="top"` or `data-logo="bottom"` on `<html>`. The kit hides the other slot. No attribute = both shown as authored.
+3. Persist the choice exactly like the theme: `localStorage.setItem('logo-position', …)` and apply the attribute in the same effect that applies `data-theme`.
+4. Expose the choice next to the theme toggle (a `.theme-btn` with a ⤒ / ⤓ glyph) or in the app's settings page — never hard-code one position in app CSS.
+5. Do not restyle `.sidebar-footer` / `.sidebar-logo` in app CSS; override tokens if the size must change.
+
+---
+
 ## Accent Color Configuration
 
 Each app can have its own accent color, configurable from the admin settings page. This lets you distinguish apps visually while keeping the same design system.
